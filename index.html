@@ -4,39 +4,51 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./src/styles/telaInicial.css">
+        <link rel="stylesheet" href="src/styles/index.css">
+        <link rel="stylesheet" href="src/styles/bootstrap.min.css">
         <script src="./src/js/tasks.js" defer></script>
-        <link rel="stylesheet" href="./src/styles/index.css">
 
     <title>to-Do CheckPoint2</title>
 </head>
 <body>
-    <div class="caixa">
-        <div class="img">
-            <img src="./src/img/pessoa-login.png" alt="pessoa anaotando uma nova tarefa">
+    <div class="wrapper">
+        <div class="caixaLeft">
+            <div class="img">
+                <img src="./src/img/pessoa-login.png" alt="pessoa anaotando uma nova tarefa">
+            </div>
         </div>
-    </div>
-    <div class="caixa">
-        <form action="">
-            <h1>To-Do App</h1>
-            <h2>Acessar</h2>
+        <div class="caixaRight">
+            <div class="caixaForm">
+                <form action="#">
+                    <div class="formHeader">
+                        <h1>To-Do App</h1>
+                        <h2>Acessar</h2>
+                    </div>
+        
+                    <fieldset id="fieldset">
+                        <div class="mb-3">
+                            <label  class="col-sm-2 col-form-label">Email</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        </div>
+        
+                        <div class="mb-3">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                              <input type="password" class="form-control" id="inputPassword">
+                        </div>
+                    </fieldset>
+        
+                    <button type="submit" class="btn btn-primary col-10" disabled>Bloqueado</button>
+        
+                </form>
+                <div class="linkFooter">
+                    <a href="signup.html">
+                        Não possui conta? &#x1F447 Crie agora mesmo
+                    </a>
+                </div>
+            </div>
+        </div>
 
-            <fieldset>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email">
-
-                <label for="senha">Senha:</label>
-                <input type="password" name="senha" id="senha">
-            </fieldset>
-
-            <button type="submit" disabled>Bloqueado</button>
-
-            <span>
-                <a href="signup.html">
-                    Não possui conta? Crie agora mesmo
-                </a>
-            </span>
-        </form>
-    </div>
+    </div>    
+    <script src="src/js/bootstrap.min.js"></script>
 </body>
 </html>
