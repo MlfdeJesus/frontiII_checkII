@@ -1,7 +1,9 @@
 /* Variáveis globais */
+
 const jwt = localStorage.getItem('jwt');
 let infoUsuario;
 let tasks;
+
 /* URL - API */
 const URL_API = "https://ctd-todo-api.herokuapp.com/v1";
 
@@ -83,19 +85,18 @@ window.addEventListener("load", async () =>{
 });
 
 
-
-
 /* Adiciona uma nova tarefa */
 
 let formNovaTarefa = document.getElementById("formAdicionaTarefa");
 let inputNovaTarefa = document.getElementById("novaTarefa");
-let botaoTarefa = document.getElementById("botaoTarefa")
+let botaoTarefa = document.getElementById("botaoTarefa");
+let botaoSair = document.getElementById("finalizarSessao");
 
 
 formNovaTarefa.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
-    if(inputNovaTarefa.length > 0){
+    if(inputNovaTarefa){
         let body = {
             "description": `${inputNovaTarefa.value}`,
             "completed": false
@@ -133,3 +134,11 @@ let checkbox = document.getElementsByTagName("input")
 
 
 console.log(checkbox)
+
+
+
+botaoSair.addEventListener('click', (evento) =>{
+    
+    location.href = "index.html";
+    
+})
