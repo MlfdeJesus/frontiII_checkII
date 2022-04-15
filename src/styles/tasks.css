@@ -1,0 +1,37 @@
+/* imports */
+@import url(./_global.css);
+
+/* Zerando estilização padrão */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Estilização do body */
+.wrapper{
+    height: 100vh;
+    background-color: var(--fundobody);
+}
+
+/* Estilização da navbar */
+.wrapper .box{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper .box .navbar-brand{
+    text-decoration: solid 1px;
+}
+
+.wrapper .box #nomeUsuario{
+    display: flex;
+    align-items: center;
+}
+
+.wrapper .box p {
+    margin: 0;
+}

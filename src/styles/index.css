@@ -94,3 +94,26 @@
 .caixaRight .caixaForm form fieldset div .form-control .linkFooter{
     text-align: center;
 }
+
+/* Estilização do alert de criação de usuário */
+
+
+.alert{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.modal.fade {
+    z-index: 10000000 !important;
+}
+
+.alert p{
+    margin: 0;
+}
+
+.alertEscondido{
+    display: none;
+}

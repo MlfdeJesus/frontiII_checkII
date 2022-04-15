@@ -1,14 +1,17 @@
 
 /* elementos form cadastro */
 
-let formulario = document.querySelector("form")
-let firstName = document.getElementById("inputNomeCadastro");
-let lastName = document.getElementById("inputSobrenomeCadastro");
-let email = document.getElementById("inputEmailCadastro");
-let password = document.getElementById("inputSenhaCadastro");
-let confirmPassword = document.getElementById("inputRepetirSenhaCadastro");
-let botao = document.getElementById("botaoCriarContaCadastro")
-let endereco = "http://localhost:5500/index.html"
+const formulario = document.querySelector("form")
+const firstName = document.getElementById("inputNomeCadastro");
+const lastName = document.getElementById("inputSobrenomeCadastro");
+const email = document.getElementById("inputEmailCadastro");
+const password = document.getElementById("inputSenhaCadastro");
+const confirmPassword = document.getElementById("inputRepetirSenhaCadastro");
+const botao = document.getElementById("botaoCriarContaCadastro")
+const divAlert = document.getElementById("alert")
+const botaoAlert = document.getElementById("botaoAlert")
+const endereco = "http://localhost:5500/index.html"
+
 
 
 
@@ -16,28 +19,39 @@ let endereco = "http://localhost:5500/index.html"
 const URL_API = "https://ctd-todo-api.herokuapp.com/v1";
 
 
+/* Criando variáveis dos objetos necessários para requisição (tem de ser escopo global) */
+let body = {
+    "email": ``,
+    "password": ``
+}
+
+let settings = {
+    method: "",
+    headers:{
+        'Content-Type': 'application/json'
+    },
+    body: ""
+}
+
 formulario.addEventListener('submit', function(evento) {
     evento.preventDefault()
-    
-  
-    let body =  {
-            "firstName": `${firstName.value}`,
-            "lastName": `${lastName.value}`,
-            "email": `${email.value}`,
-            "password": `${password.value}`
-        }
-    
 
-    let settings = {
+    body =  {
+        "firstName": `${firstName.value}`,
+        "lastName": `${lastName.value}`,
+        "email": `${email.value}`,
+        "password": `${password.value}`
+    }
+
+
+    settings = {
         method: "POST",
         headers:{
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(body)
     }
-
-
- 
+    
     fetch(`${URL_API}/users`, settings)
     .then((result) =>{
         
@@ -46,8 +60,8 @@ formulario.addEventListener('submit', function(evento) {
     }).then((info) => {
 
         let token = info;
-        console.log(token.jwt);
-        localStorage.setItem("jwt", token.jwt)
+        localStorage.setItem("jwt", token.jwt);
+        divAlert.classList.remove("alertEscondido");
 
     }).catch( (error) => {
 
@@ -57,3 +71,8 @@ formulario.addEventListener('submit', function(evento) {
 
 
 }) 
+
+/* Função que irá dar um feedback ao usuário sobre novo usuário criado com sucesso e redireciona-lo a rota (página) index.html */
+botaoAlert.addEventListener("click" , () => {
+    location.href = endereco
+})

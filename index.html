@@ -6,9 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="src/styles/index.css">
         <link rel="stylesheet" href="src/styles/bootstrap.min.css">
-        <script src="./src/js/tasks.js" defer></script>
-
-    <title>to-Do CheckPoint2</title>
+        
+        <title>to-Do App CheckPoint2</title>
 </head>
 <body>
     <div class="wrapper">
@@ -28,16 +27,16 @@
                     <fieldset id="fieldset">
                         <div class="mb-3">
                             <label  class="col-sm-2 col-form-label">Email</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="inputEmailLogin" placeholder="name@example.com">
                         </div>
         
                         <div class="mb-3">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                              <input type="password" class="form-control" id="inputPassword">
+                              <input type="password" class="form-control" id="inputSenhaLogin">
                         </div>
                     </fieldset>
         
-                    <button type="submit" class="btn btn-primary col-10" disabled>Bloqueado</button>
+                    <button type="submit" class="btn btn-primary col-10" id="botaoLogin" disabled>Bloqueado</button>
         
                 </form>
                 <div class="linkFooter">
@@ -49,6 +48,7 @@
         </div>
 
     </div>    
+    <script src="./src/js/index.js"></script>
     <script src="src/js/bootstrap.min.js"></script>
 </body>
 </html>
