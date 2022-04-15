@@ -22,16 +22,24 @@ const settings = {
 
 
 /* Evento de 1.autenticação simples; 2.habiitação do botão de login; 3.atribuição dos valores as propriedades dos objetos da requisição*/
+
 formulario.addEventListener("change" ,() => {
-    if(email.value.length > 0 && senha.value.length > 0){
+
+    var mailformat = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
+
+    if(email.value.match(mailformat)&& senha.value.length > 0){
         botao.removeAttribute("disabled");
         botao.innerText = "Acessar"
+        console.log('email valido!');
     }
+    
+    
 
     body.email = email.value;
     body.password = senha.value;
   
     settings.body = JSON.stringify(body);
+
 })
 
 
@@ -75,3 +83,4 @@ formulario.addEventListener("submit", (evento) => {
     }, 2000)
 
 })
+
