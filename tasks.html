@@ -6,17 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/styles/tasks.css">
     <link rel="stylesheet" href="src/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="src/styles/bootstrap-icons.css">
     <title>Tarefas</title>
 </head>
 <body>
-    <div class="wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <div class="wrapperBody">
+        <nav class="navbar-light bg-primary">
             <div class="box">
                 <a class="navbar-brand" href="#">Tarefas</a>
                 <div id="nomeUsuario"></div>
                 <button type="button" class="btn btn-danger">Finalizar Sessão</button>
             </div>
         </nav>
+
+        <div class="wrapperCard">
+            <div class="card">
+                <section class="card-header">
+                    <h2 class="card-title">To-Do App</h2>
+                    <form class="inputAdiciona" id="formAdicionaTarefa">
+                        <input 
+                            id="novaTarefa" 
+                            type="text" 
+                            class="form-control" 
+                            placeholder="Adicione uma tarefa">
+                            
+                        <button 
+                            id="botaoTarefa"
+                            type="submit" 
+                            class="btn btn-outline-primary"
+                            > + </button>
+                    </form>
+                </section>
+
+                <div class="card-body">
+                    <ul class="list-group list-group-flush" id="listaTasks"></ul>
+                </div>
+            </div>
+        </div>
 
     </div>
     <script src="src/js/tasks.js"></script>

@@ -1,7 +1,7 @@
 /* imports */
 @import url(./_global.css);
 
-/* Zerando estilização padrão */
+/* 1. Zerando estilização padrão */
 *{
     margin: 0;
     padding: 0;
@@ -9,29 +9,80 @@
 }
 
 
-/* Estilização do body */
-.wrapper{
+/* 2. Estilização do body */
+.wrapperBody{
     height: 100vh;
     background-color: var(--fundobody);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-/* Estilização da navbar */
-.wrapper .box{
+/* 3. Estilização da navbar */
+.wrapperBody .box{
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.wrapper .box .navbar-brand{
+.wrapperBody .box .navbar-brand{
     text-decoration: solid 1px;
 }
 
-.wrapper .box #nomeUsuario{
+.wrapperBody .box #nomeUsuario{
     display: flex;
     align-items: center;
 }
 
-.wrapper .box p {
+.wrapperBody .box h1 {
     margin: 0;
+}
+
+/* 4. Estilização card tarefas */
+
+.wrapperCard{
+    display: flex;
+    justify-content: center;
+}
+
+.wrapperCard .card{
+    width: 50vw;
+}
+
+/* 4.1 Estilização cabeçalho card */
+.wrapperCard .card .card-header{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wrapperCard .card .card-header .inputAdiciona{
+    display: flex;
+    gap: 10px;    
+}
+
+/* 4.2 Estilização corpo card */
+
+.wrapperCard .card .list-group-item{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.wrapperCard .card .itemBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.wrapperCard .card .itemBox p{
+    margin: 0;
+}
+
+.wrapperCard .card .itemBox .form-check-input {
+    display: inline;
 }
