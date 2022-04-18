@@ -95,7 +95,7 @@ let botaoTarefa = document.getElementById("botaoTarefa")
 formNovaTarefa.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
-    if(inputNovaTarefa.length > 0){
+    if(inputNovaTarefa.value.length > 0){
         let body = {
             "description": `${inputNovaTarefa.value}`,
             "completed": false
@@ -130,6 +130,3 @@ formNovaTarefa.addEventListener("submit", (evento) => {
 
 /* Atualizando a tarefa como concluida */
 let checkbox = document.getElementsByTagName("input")
-
-
-console.log(checkbox)
