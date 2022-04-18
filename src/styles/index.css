@@ -1,7 +1,7 @@
 /* Imports */
 @import url(./_global.css);
 
-/* Zerando css padrão dp browser */
+/* 1. Zerando css padrão dp browser */
 *{
     margin: 0;
     padding: 0;
@@ -9,14 +9,14 @@
 }
 
 
-/* Estilização corpo (body) do site */
+/* 2. Estilização corpo (body) do site */
 .wrapper{
     height: 100vh;
     background-color: var(--fundobody);
     display: flex;
 }
 
-/* Estilização caixa da esquerda */
+/* 2.1 Estilização caixa da esquerda */
 .caixaLeft{
     background-color: var(--fundoCaixas);
     width: 50%;
@@ -33,7 +33,7 @@
     width: 100%;
 }
 
-/* Estilização caixa da direita */
+/* 2.2 Estilização caixa da direita */
 .caixaRight{
     width: 50%;
     display: flex;
@@ -53,7 +53,7 @@
     border: 1px solid black;
 }
 
-/* Estilização fomulários */
+/* 3. Estilização fomulários */
 .caixaRight .caixaForm form{
     display: flex;
     flex-direction: column;
@@ -70,7 +70,7 @@
     width: 160%;
 }
 
-/* Estilização específica para o formulário de login */
+/* 3.1 Estilização específica para o formulário de login */
 #fieldset{
     height: 60%;
     display: flex;
@@ -95,28 +95,27 @@
     text-align: center;
 }
 
-/* Estilização do alert de criação de usuário */
+/* 4. Estilização do alert de criação de usuário */
 
 
-.alert{
+body .alert{
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
     font-weight: bold;
+    margin: 38px 14%;
+    align-self: center;
 }
 
-.modal.fade {
-    z-index: 1 !important;
-}
 
 .alert p{
     margin: 0;
 }
 
-.alertEscondido{
+/* 4.1 Escondendo o alert  */
+body .alertEscondido{
     display: none;
-    justify-content: center;
-    
 }
 

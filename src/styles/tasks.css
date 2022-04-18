@@ -21,14 +21,15 @@
 /* 3. Estilização da navbar */
 .wrapperBody .box{
     width: 100%;
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .wrapperBody .box .navbar-brand{
-    text-decoration: solid 1px;
+    margin: 0;
+    color: white;
 }
 
 .wrapperBody .box #nomeUsuario{
@@ -36,15 +37,18 @@
     align-items: center;
 }
 
-.wrapperBody .box h1 {
+.wrapperBody .box #nomeUsuario h1 {
     margin: 0;
+    color: white;
 }
 
 /* 4. Estilização card tarefas */
 
 .wrapperCard{
     display: flex;
-    justify-content: center;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .wrapperCard .card{
@@ -63,7 +67,7 @@
     gap: 10px;    
 }
 
-/* 4.2 Estilização corpo card */
+/* 4.2 Estilização corpo card e as tarefas */
 
 .wrapperCard .card .list-group-item{
     display: flex;
@@ -83,6 +87,6 @@
     margin: 0;
 }
 
-.wrapperCard .card .itemBox .form-check-input {
-    display: inline;
+.delete{
+    cursor: pointer;
 }

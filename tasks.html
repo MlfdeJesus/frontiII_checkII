@@ -11,6 +11,8 @@
 </head>
 <body>
     <div class="wrapperBody">
+        
+    <header>
         <nav class="navbar-light bg-primary">
             <div class="box">
                 <a class="navbar-brand" href="#">Tarefas</a>
@@ -18,8 +20,13 @@
                 <button type="button" class="btn btn-danger" id="finalizarSessao">Finalizar Sessão</button>
             </div>
         </nav>
+    </header>
+    
 
         <div class="wrapperCard">
+
+            <!-- Card com tarefas já cadastradas e input para cadastro de novas tarefas -->
+            
             <div class="card">
                 <section class="card-header">
                     <h2 class="card-title">To-Do App</h2>
@@ -42,18 +49,21 @@
                 <div class="card-body">
                     <ul class="list-group list-group-flush" id="listaTasks"></ul>
                 </div>
-
-                <section>
-                    <h1>COCO</h1>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush" id="completasTasks"></ul>
-                </div>
-            </section>
-                
-                
+    
             </div>
-
-
+            
+            <!-- Card com tarefas concluídas  -->
+            
+            <div class="card">
+                <section>
+                    <div class="card-header">
+                        <h2 class="card-title">Tarefas terminadas</h2>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush" id="completasTasks"></ul>
+                    </div>
+                </section>
+            </div>
 
 
         </div>
