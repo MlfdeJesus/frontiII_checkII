@@ -4,6 +4,7 @@ const jwt = localStorage.getItem('jwt');
 let infoUsuario;
 let tasks;
 let botaoSair = document.getElementById("finalizarSessao");
+let botaoExcluiTarefa = document.getElementById("botaoModalExluiTarefa")
 
 const settings = {
     headers : {
@@ -61,14 +62,14 @@ function renderizaTarefasPendentes(tarefas){
             let dataTarefa = document.createElement("p");
             let lixeira = document.createElement("div");
             let calendar = document.createElement("div")
-            let iconeLixeira = `<svg width="20" height="18" fill="red" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+            let iconeLixeira = `<svg width="20" height="20" fill="#dc3545" class="bi bi-trash2-fill" viewBox="0 0 14 14">
+            <path d="M2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225zm9.89-.69C10.966 2.214 9.578 2 8 2c-1.58 0-2.968.215-3.926.534-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466-.18-.14-.498-.307-.975-.466z"/>
           </svg>`
             let iconCalendar = `<svg width="16" height="16" fill="currentColor" class="bi bi-calendar4-event" viewBox="0 0 16 16">
             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z"/>
             <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
           </svg>`
-            let iconCheck = `<svg width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 13 16">
+            let iconCheck = `<svg width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 11 15">
             <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
           </svg>`
 
@@ -80,7 +81,7 @@ function renderizaTarefasPendentes(tarefas){
             botaoCompleta.classList.add( "btn-outline-primary", "btn")
             botaoCompleta.innerHTML = iconCheck;
             textoTarefa.innerText = `${tarefa.description}`;
-            dataTarefa.innerText =  `${dataFormatada}`;
+            dataTarefa.innerText =  `${dataFormatada} |`;
             caixaTextoData.appendChild(textoTarefa);
             calendar.innerHTML = iconCalendar;
             caixaTextoData.appendChild(calendar)
@@ -91,12 +92,19 @@ function renderizaTarefasPendentes(tarefas){
             itemListaTarefas.appendChild(caixaTextoData);
             lixeira.innerHTML = iconeLixeira;
             lixeira.classList.add("delete")
+            lixeira.setAttribute("data-bs-toggle", "modal")
+            lixeira.setAttribute("data-bs-target", "#modalExluiTarefa")
             itemListaTarefas.appendChild(lixeira);
             listadeTarefas.appendChild(itemListaTarefas);
 
             lixeira.addEventListener('click', (evento) => {
+
                 evento.target.id = tarefa.id
-                deletarTarefa(evento.target.id);
+
+                botaoExcluiTarefa.addEventListener("click" , () =>{
+                    deletarTarefa(evento.target.id);
+                })
+
             });
 
             botaoCompleta.addEventListener("click", () => {
@@ -278,9 +286,11 @@ function retornaTarefaPendentes(infoTarefa){
 // Fazer voltar para tela de login
 botaoSair.addEventListener('click', () =>{
     
-    location.href = "index.html";
+    setTimeout(() => {
+        
+        location.href = "index.html";
 
-    alert("volte sempre!")
+    }, 4000)
 
 });
 

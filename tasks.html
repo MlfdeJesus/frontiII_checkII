@@ -12,21 +12,52 @@
 </head>
 <body>
     <div class="wrapperBody">
-        
-    <header>
-        <nav class="navbar-light bg-primary">
-            <div class="box">
-                <a class="navbar-brand" href="#">Tarefas</a>
-                <div class="iconeTitulo">
-                    <svg width="36" height="36" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
-                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    </svg>                    
-                    <div id="nomeUsuario"></div>
+
+        <!-- Modal para encerrar a sessão -->
+        <div class="modal fade" id="Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Deseja encerrar a sessão?</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="finalizarSessao">Sim</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Cancelar </button>
+                    </div>
                 </div>
-                <button type="button" class="btn btn-danger" id="finalizarSessao">Finalizar Sessão</button>
             </div>
-        </nav>
-    </header>
+        </div>
+
+        <!-- Modal para excluir tarefa -->
+        <div class="modal fade" id="modalExluiTarefa" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Deseja realmente excluir a tarefa?</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="botaoModalExluiTarefa">Sim</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Cancelar </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Estrutura page de tarefas -->
+        <header>
+            <nav class="navbar-light bg-primary">
+                <div class="box">
+                    <a class="navbar-brand" href="#">Tarefas</a>
+                    <div class="iconeTitulo">
+                        <svg width="36" height="36" fill="white" class="bi bi-person-fill" viewBox="0 0 15 15">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        </svg>                    
+                        <div id="nomeUsuario"></div>
+                    </div> 
+                    <button type="button" class="btn btn-danger"  data-bs-target="#Modal" data-bs-toggle="modal" id="excluiTarefa">Finalizar Sessão</button>
+                </div>
+            </nav>
+        </header>
     
 
         <div class="wrapperCard">

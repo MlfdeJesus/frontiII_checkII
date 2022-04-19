@@ -21,7 +21,7 @@
 /* 3. Estilização da navbar */
 .wrapperBody .box{
     width: 100%;
-    padding: 20px 20px 10px 20px;
+    padding: 20px 20px 5px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,6 +30,8 @@
 .wrapperBody .box .navbar-brand{
     margin: 0;
     color: white;
+    font-size: 19pt;
+    font-weight: 500;
 }
 
 .wrapperBody .box .iconeTitulo{
@@ -84,12 +86,13 @@
 }
 
 div ul li .btn-outline-primary{
-    width: 25px;
-    height: 23px;
+    width: 26px;
+    height: 25px;
     padding: 0;
     border-radius: 50%;
     align-items: center;
     display: flex;
+    justify-content: flex-start
 }
 
 .wrapperCard .card .itemBox{
@@ -104,17 +107,23 @@ div ul li .btn-outline-primary{
     display: flex;
     align-items: center;
     gap: 10px;
+    align-self: center;
 }
 
 .wrapperCard .card .itemBox p{
     margin: 0;
+    flex-grow: 1;
+    text-align: justify;
 }
 
 .delete{
     cursor: pointer;
     align-self: baseline;
+    align-self: center;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
-
 
 /* 4.3 Estilização corpo card e as tarefas CONCLUÍDAS */
 div #completasTasks li div{
