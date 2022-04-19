@@ -12,11 +12,20 @@
     
     
     <!-- Alert (escondido) de criação bem sucedida de um novo usuário  -->
-          <div class="alert alert-primary alertEscondido" id="alert">
+          <div class="alert alert-primary alertSucessoEscondido" id="divAlertSucess">
             <p>
-              Usuário criado com sucesso!
+              Usuário cadastrado com sucesso!
             </p>
-            <button type="button" class="btn btn-primary" id="botaoAlert">OK</button>
+            <button type="button" class="btn btn-primary" id="botaoAlertSucess">OK</button>
+         </div>
+
+          <div class="alert alert-danger alertErroEscondido" id="divAlertError">
+            <p>
+              Usuário não cadastrado!
+              <br>
+              Verifique os dados e tente novamente!
+            </p>
+            <button type="button" class="btn btn-danger" id="botaoAlertError">OK</button>
          </div>
 
 
@@ -34,9 +43,10 @@
           <div class="caixaForm">
 
               <form>
-                <div class="form-header">
-                    <h1>To-Do App</h1>
-                  </div>
+                    <div class="form-header">
+                        <h1>To-Do App</h1>
+                        <p>cadastro</p>
+                    </div>
                     <fieldset>
                         <div class="mb-3">
                             <label for= "inputNomeCadastro" class="col-form-label"> Nome: </label>
@@ -54,17 +64,17 @@
                         </div>
               
                         <div class="mb-3">
-                            <label for="inputSenhaCadastro" class="col-form-label">Password</label>
-                            <input type="password" class="form-control" id="inputSenhaCadastro">
+                            <label for="inputSenhaCadastro" class="col-form-label">Senha</label>
+                            <input type="password" class="form-control" id="inputSenhaCadastro" placeholder="no mínimo 6 caracteres">
                         </div>
                         
                         <div class="mb-3">
                           <label for="inputRepetirSenhaCadastro" class="col-form-label">Repetir senha:</label>
-                            <input type="password" class="form-control" id="inputRepetirSenhaCadastro">
+                            <input type="password" class="form-control" id="inputRepetirSenhaCadastro" placeholder="confirme sua senha">
                         </div>
                     </fieldset>
                     <div class="btn-lg d-grid col-11 mx-auto ">
-                      <button type="submit" class="btn btn-primary" id="botaoCriarContaCadastro" disabled>Criar conta</button>  
+                      <button type="submit" class="btn btn-primary" id="botaoCriarContaCadastro" disabled>Bloqueado</button>  
                     </div>
                   </form>
                 <div class="linkFooter">

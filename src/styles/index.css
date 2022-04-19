@@ -8,6 +8,9 @@
     box-sizing: border-box;
 }
 
+body{
+    /* position: relative; */
+}
 
 /* 2. Estilização corpo (body) do site */
 .wrapper{
@@ -45,7 +48,7 @@
     background-color: var(--fundoCaixas);
     width: 60%;
     height: 85%;
-    padding: 20px;
+    padding: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,16 +61,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     height: 100%;
+    width: 100%;
 }
 
-.caixaRight .caixaForm form .formHeader{
+.caixaRight .caixaForm form .form-header{
     text-align: center;
 }
 
+.caixaRight .caixaForm form .form-header h1{
+    font-size: 30pt;
+    font-weight: 600;
+    margin: 0;
+}
+
+.caixaRight .caixaForm form .form-header p{
+    margin: 0;
+    font-size: 15pt;
+    font-weight: 600;
+}
+
 .caixaRight .caixaForm form fieldset{
-    width: 160%;
+    width: 100%;
 }
 
 /* 3.1 Estilização específica para o formulário de login */
@@ -99,14 +114,19 @@
 
 
 body .alert{
+    width: 380px;
+    height: 100px;
+    padding: 10px;
     position: absolute;
+    left: 35%;
+    top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
     font-weight: bold;
-    margin: 38px 14%;
     align-self: center;
+    text-align: center;
 }
 
 
@@ -114,8 +134,11 @@ body .alert{
     margin: 0;
 }
 
-/* 4.1 Escondendo o alert  */
-body .alertEscondido{
+/* 4.1 Escondendo os alerts  */
+body .alertSucessoEscondido{
     display: none;
 }
 
+body .alertErroEscondido{
+    display: none;
+}
