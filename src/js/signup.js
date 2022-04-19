@@ -22,7 +22,7 @@ formulario.addEventListener("change" ,() => {
 
     let mailformat = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i;
 
-    if(email.value.match(mailformat) && senha.value.length > 6 && senha.value == confirmSenha.value){
+    if(email.value.match(mailformat) && senha.value.length >= 6 && senha.value == confirmSenha.value){
         botao.removeAttribute("disabled");
         botao.innerText = "Criar conta"
         console.log('Tudo valido!');

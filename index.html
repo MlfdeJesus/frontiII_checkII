@@ -10,12 +10,25 @@
         <title>to-Do App CheckPoint2</title>
 </head>
 <body>
+
+    <!-- Alert em caso de erro no login -->
+    <div class="alert alert-danger alertErroEscondido" id="divAlertError">
+        <p>
+          Usuário não existe!
+          <br>
+          Verifique os dados e tente novamente!
+        </p>
+        <button type="button" class="btn btn-danger" id="botaoAlertError">OK</button>
+     </div>
+
+     <!-- Estrutura page de login -->
     <div class="wrapper">
         <div class="caixaLeft">
             <div class="img">
                 <img src="./src/img/pessoa-login.png" alt="pessoa anaotando uma nova tarefa">
             </div>
         </div>
+
         <div class="caixaRight">
             <div class="caixaForm">
                 <form action="#">
@@ -32,7 +45,7 @@
         
                         <div class="mb-3">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                              <input type="password" class="form-control" id="inputSenhaLogin">
+                              <input type="password" class="form-control" id="inputSenhaLogin" placeholder="mínimo 6 caracteres">
                         </div>
                     </fieldset>
         
