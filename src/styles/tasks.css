@@ -67,13 +67,20 @@
     gap: 10px;    
 }
 
-/* 4.2 Estilização corpo card e as tarefas */
 
+/* 4.2 Estilização corpo card e as tarefas PENDENTES */
 .wrapperCard .card .list-group-item{
     display: flex;
     align-items: center;
     width: 100%;
     gap: 10px;
+}
+
+div ul li .btn-outline-primary{
+    width: 20px;
+    height: 18px;
+    padding: 0;
+    border-radius: 50%;
 }
 
 .wrapperCard .card .itemBox{
@@ -89,4 +96,10 @@
 
 .delete{
     cursor: pointer;
+}
+
+
+/* 4.3 Estilização corpo card e as tarefas CONCLUÍDAS */
+div #completasTasks li div{
+    text-decoration-line: line-through;
 }

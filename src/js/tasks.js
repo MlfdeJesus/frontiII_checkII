@@ -41,10 +41,21 @@ async function buscaTarefasUsuario(){
         const response = await fetch(`${URL_API}/tasks`, settings);
         const responseEmJson = await response.json();
         tasks = responseEmJson;
+        renderizaTarefasPendentes(tasks);
+        renderizaTarefasConcluidas(tasks);
+    }catch(error){
+        console.error(error)
+    };
+    
+}
 
-        tasks.forEach(tarefa => {
+function renderizaTarefasPendentes(tarefas){
+    tarefas.forEach(tarefa => {
+            
+        if(!tarefa.completed){
             let listadeTarefas = document.getElementById("listaTasks")
             let itemListaTarefas = document.createElement("li");
+            let botaoCompleta = document.createElement("button");
             let caixaTextoData = document.createElement("div")
             let textoTarefa = document.createElement("p");
             let dataTarefa = document.createElement("p");
@@ -58,35 +69,53 @@ async function buscaTarefasUsuario(){
             let dataFormatada = data.toLocaleDateString('pt-BR')
             
             itemListaTarefas.classList.add("list-group-item");
+            botaoCompleta.setAttribute("type", "button")
+            botaoCompleta.classList.add( "btn-outline-primary", "btn")
             textoTarefa.innerText = `${tarefa.description}`;
             dataTarefa.innerText =  `${dataFormatada}`;
             caixaTextoData.appendChild(textoTarefa);
             caixaTextoData.appendChild( dataTarefa);
-            caixaTextoData.classList.add("itemBox")
+            caixaTextoData.classList.add("itemBox");
+            itemListaTarefas.appendChild(botaoCompleta)
             itemListaTarefas.appendChild(caixaTextoData);
             lixeira.innerHTML = iconeLixeira;
             lixeira.classList.add("delete")
             itemListaTarefas.appendChild(lixeira);
             listadeTarefas.appendChild(itemListaTarefas);
 
-
-
             lixeira.addEventListener('click', (evento) => {
                 evento.target.id = tarefa.id
-                console.log(evento.target.id)
-            
                 deletarTarefa(evento.target.id);
-            
-            
             });
+
+            botaoCompleta.addEventListener("click", () => {
+                marcarTarefaConcluida(tarefa);
+            })
+
             
-        });
-    }catch(error){
-        console.error(error)
-    };
-    
+        }    
+
+    });
 }
 
+function renderizaTarefasConcluidas(tarefas){
+    tarefas.forEach(tarefa => {
+        if(tarefa.completed){
+            let listadeTarefas = document.getElementById("completasTasks")
+            let itemListaTarefas = document.createElement("li");
+            let caixaTextoData = document.createElement("div")
+            let textoTarefa = document.createElement("p");
+
+
+            itemListaTarefas.classList.add("list-group-item");
+            textoTarefa.innerText = `${tarefa.description}`;
+            caixaTextoData.appendChild(textoTarefa);
+            caixaTextoData.classList.add("itemBox");
+            itemListaTarefas.appendChild(caixaTextoData);
+            listadeTarefas.appendChild(itemListaTarefas);
+        }
+    })
+}
 
 
 /* Adicionando uma nova tarefa */
@@ -148,7 +177,7 @@ function deletarTarefa(id){
         headers : {
 
             'Content-type': 'application/json',
-            "authorization": `${jwt}`
+            "Authorization": `${jwt}`
         },
     };
 
@@ -171,6 +200,37 @@ function deletarTarefa(id){
 
 }
 
+
+/* Marcando uma tarefa como concluída */
+function marcarTarefaConcluida(infoTarefa){
+
+    const settings = {
+        method: "PUT",
+        body:JSON.stringify({
+            "completed": true
+        }),
+        headers: {
+            "Authorization": `${jwt}`,
+            'Content-type': 'application/json',
+        },
+    }
+
+    fetch(`${URL_API}/tasks/${infoTarefa.id}`, settings)
+    .then((response) => {
+        
+        return response.status
+
+    }).then((status) => {
+        if(status == 200){
+
+            window.location.reload()
+
+        }
+        
+    }).catch((error) => {
+        console.error(error)
+    });
+}
 
 
 // Fazer voltar para tela de login
