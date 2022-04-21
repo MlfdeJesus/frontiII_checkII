@@ -7,7 +7,32 @@
 }
 
 /* Responsividade page login e cadastro */
-@media (max-width: 575.98px) {
+@media (max-width: 768px) {
+    .wrapper{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .caixaLeft{
+        width: 100vw;
+    }
+
+    .caixaLeft .img {
+        width: 20%;
+    }
+
+    .caixaRight{
+        width: 100vw;
+        height: 77%;
+    }
+
+    .caixaRight .caixaForm{
+        width: 50%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 576px) {
     .wrapper{
         justify-content: center;
         align-items: center;
@@ -22,29 +47,12 @@
         height: 100%;
     }
 
+    .caixaRight .caixaForm{
+        width: 60%;
+        height: 80%;
+    }
+
     .linkFooter{
         text-align: center;
-    }
-}
-
-@media (max-width: 767.98px) {
-    .wrapper{
-        flex-direction: column;
-    }
-
-    .caixaLeft{
-        width: 100vw;
-    }
-
-    .caixaLeft .img {
-        width: 30%;
-    }
-
-    .caixaRight{
-        width: 100vw;
-        height: 77%;
-    }
-
-    .caixaRight .caixaForm form {
     }
 }
