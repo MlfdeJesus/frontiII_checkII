@@ -78,8 +78,8 @@ function renderizaTarefasPendentes(tarefas){
             let dataFormatada = data.toLocaleDateString('pt-BR')
             
             itemListaTarefas.classList.add("list-group-item");
-            botaoCompleta.setAttribute("type", "button")
-            botaoCompleta.classList.add( "btn-outline-primary")
+            botaoCompleta.setAttribute("type", "button");
+            botaoCompleta.classList.add( "btn-outline-primary");
             botaoCompleta.innerHTML = iconCheck;
             textoTarefa.innerText = `${tarefa.description}`;
             dataTarefa.innerText =  `${dataFormatada}`;
@@ -122,15 +122,20 @@ function renderizaTarefasPendentes(tarefas){
 function renderizaTarefasConcluidas(tarefas){
     tarefas.forEach(tarefa => {
         if(tarefa.completed){
-            let listadeTarefas = document.getElementById("completasTasks")
+            let listadeTarefas = document.getElementById("completasTasks");
             let itemListaTarefas = document.createElement("li");
-            let caixaTexto = document.createElement("div")
+            let caixaTexto = document.createElement("div");
             let textoTarefa = document.createElement("p");
-            let buttonVoltar = document.createElement("a")
+            let buttonVoltar = document.createElement("a");
+            let lixeira = document.createElement("a");
             let iconRecarega = `<svg width="24" height="24" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 14">
             <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
             <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
-          </svg>`
+            </svg>`
+            let iconeLixeira = `<svg width="24" height="24" fill="currentColor" class="bi bi-trash2-fill" viewBox="0 0 16 16">
+            <path d="M2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225zm9.89-.69C10.966 2.214 9.578 2 8 2c-1.58 0-2.968.215-3.926.534-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466-.18-.14-.498-.307-.975-.466z"/>
+            </svg>`
+
 
 
             itemListaTarefas.classList.add("list-group-item");
@@ -139,15 +144,31 @@ function renderizaTarefasConcluidas(tarefas){
             buttonVoltar.innerHTML = iconRecarega;
             buttonVoltar.setAttribute("type", "button")
             buttonVoltar.classList.add("btn-outline-primary")
-            caixaTexto.appendChild(buttonVoltar)
+            lixeira.innerHTML = iconeLixeira;
+            lixeira.setAttribute("type", "button");
+            lixeira.setAttribute("data-bs-toggle", "modal")
+            lixeira.setAttribute("data-bs-target", "#modalExluiTarefa")
+            lixeira.classList.add("btn-outline-danger")
             caixaTexto.classList.add("itemBox");
             itemListaTarefas.appendChild(caixaTexto);
+            itemListaTarefas.appendChild(lixeira)
+            itemListaTarefas.appendChild(buttonVoltar);
             listadeTarefas.appendChild(itemListaTarefas);
 
 
             buttonVoltar.addEventListener("click", () => {
                 marcarTarefaConcluidaOuPendente(tarefa, false);
             })
+
+            lixeira.addEventListener('click', (evento) => {
+
+                evento.target.id = tarefa.id
+                
+                botaoExcluiTarefa.addEventListener("click" , () =>{
+                    deletarTarefa(evento.target.id);
+                })
+
+            });
         }
 
     })

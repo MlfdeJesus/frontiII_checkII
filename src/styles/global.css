@@ -41,6 +41,23 @@
         width: 45%;
         height: 100%;
     }
+
+    .wrapperCard .card {
+        width: 95vw;
+    }
+
+    .wrapperBody .box{
+        gap: 20px;    
+    }
+
+    .wrapperBody .box .navbar-brand{
+        padding: 0;
+    }
+
+    .wrapperCard .card .arrumaData {
+        flex-direction: column;
+        font-size: smaller;
+    }
 }
 
 @media (max-width: 576px) {
@@ -59,7 +76,7 @@
     }
 
     .caixaRight .caixaForm{
-        width: 60%;
+        width: 75%;
         height: 80%;
     }
 
